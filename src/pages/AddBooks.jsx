@@ -3,6 +3,11 @@ import axios from 'axios';
 import { FaLanguage } from 'react-icons/fa';
 
 const AddBooks = () => {
+    // const { role } = req.user; // Decoded from the JWT token
+
+    // if (role !== "admin") {
+    //     return res.status(403).json({ message: "You don't have access to perform admin work" });
+    // }
     const [Data, setData] = useState({
         url: "",
         title: "",
@@ -22,6 +27,36 @@ const AddBooks = () => {
         setData({ ...Data, [name]: value });
     };
 
+    // const submit = async () => {
+    //     try {
+    //         if (
+    //             Data.url === "" ||
+    //             Data.title === "" ||
+    //             Data.author === "" ||
+    //             Data.price === "" ||
+    //             Data.desc === "" ||
+    //             Data.language === ""
+    //         ) {
+    //             alert("All Fields are required");
+    //         } else {
+    //             const response = await axios.post("http://localhost:5000/api/v1/add-book", Data, { headers });
+    //             // setData({
+    //             //     url: "",
+    //             //     title: "",
+    //             //     author: "",
+    //             //     price: "",
+    //             //     desc: "",
+    //             //     language: "",
+
+    //             // });
+    //             alert(response.data.message);
+    //         }
+    //     } catch (error) {
+    //         console.error("Error adding book:", error);
+    //         alert("An error occurred while adding the book.");
+    //     }
+    // };
+
     const submit = async () => {
         try {
             if (
@@ -34,16 +69,12 @@ const AddBooks = () => {
             ) {
                 alert("All Fields are required");
             } else {
-                const response = await axios.put("http://localhost:5000/api/v1/add-book", Data, { headers });
-                // setData({
-                //     url: "",
-                //     title: "",
-                //     author: "",
-                //     price: "",
-                //     desc: "",
-                //     language: "",
-
-                // });
+                // POST request to add the book
+                const response = await axios.post(
+                    "http://localhost:5000/api/v1/add-book",
+                    Data, // Book data from the state
+                    { headers } // Authorization headers
+                );
                 alert(response.data.message);
             }
         } catch (error) {
@@ -51,6 +82,11 @@ const AddBooks = () => {
             alert("An error occurred while adding the book.");
         }
     };
+    
+    
+
+
+    
 
     return (
         <div className='h-[100%] p-0 md:p-4'>

@@ -9,25 +9,25 @@ const BookCard = ({ data, favourites, removeBookFromFavourites }) => {
     bookid: data._id,
   };
 
-  // const handleRemoveBook = async () => {
-  //   try {
-  //     await axios.delete("http://localhost:5000/api/v1/remove-book-from-favourite", { headers });
-  //     removeBookFromFavourites(data._id);  // Update the list after a successful delete request
-  //   } catch (error) {
-  //     console.error("Error removing book:", error);
-  //   }
-  // };
-
   const handleRemoveBook = async () => {
     try {
-      await axios.delete("http://localhost:5000/api/v1/remove-book-from-favourite", { headers:{
-        authorization:`Bearer ${localStorage.getItem("token")}`,
-      } });
+      await axios.delete("http://localhost:5000/api/v1/remove-book-from-favourite", { headers });
       removeBookFromFavourites(data._id);  // Update the list after a successful delete request
     } catch (error) {
       console.error("Error removing book:", error);
     }
   };
+
+  // const handleRemoveBook = async () => {
+  //   try {
+  //     await axios.delete("http://localhost:5000/api/v1/remove-book-from-favourite", { headers:{
+  //       authorization:`Bearer ${localStorage.getItem("token")}`,
+  //     } });
+  //     removeBookFromFavourites(data._id);  // Update the list after a successful delete request
+  //   } catch (error) {
+  //     console.error("Error removing book:", error);
+  //   }
+  // };
 
   return (
     <div className='bg-zinc-800 rounded p-4 flex flex-col'>

@@ -18,6 +18,7 @@ import UserOrderHistory from './components/Profile/UserOrderHistory';
 import Setting from './components/Profile/Setting';
 import AllOrders from './pages/AllOrders';
 import AddBooks from './pages/AddBooks';
+import UpdateBook from './pages/UpdateBook';
 // import UpdateBook from './pages/UpdateBook';
 
 
@@ -62,7 +63,7 @@ function App() {
 
         <Route  path="/login" element={<LogIn/>}></Route>
         <Route  path="/signup" element={<SignUp/>}></Route>
-        {/* <Route  path="/updateBook/:id" element={<UpdateBook/>}></Route> */}
+        <Route  path="/updateBook/:id" element={<UpdateBook/>}></Route>
         
 
         <Route  path="/view-book-details/:id" element={<ViewBookDetails/>}></Route>

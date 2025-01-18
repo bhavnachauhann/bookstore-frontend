@@ -137,6 +137,19 @@ const Navbar = () => {
     ];
 
     // Dynamically adjust links based on `isLoggedIn` and `role`
+    // const links = baseLinks.filter((item) => {
+    //     if (!isLoggedIn && (item.title === "Cart" || item.title === "Profile" || item.title === "Admin Profile")) {
+    //         return false;
+    //     }
+    //     if (isLoggedIn && role === "user" && item.title === "Admin Profile") {
+    //         return false;
+    //     }
+    //     if (isLoggedIn && role === "admin" && item.title === "Profile") {
+    //         return false;
+    //     }
+    //     return true;
+    // });
+
     const links = baseLinks.filter((item) => {
         if (!isLoggedIn && (item.title === "Cart" || item.title === "Profile" || item.title === "Admin Profile")) {
             return false;
@@ -144,12 +157,12 @@ const Navbar = () => {
         if (isLoggedIn && role === "user" && item.title === "Admin Profile") {
             return false;
         }
-        if (isLoggedIn && role === "admin" && item.title === "Profile") {
+        if (isLoggedIn && role === "admin" && (item.title === "Profile" || item.title === "Cart")) {
             return false;
         }
         return true;
     });
-
+    
     const [mobileNav, setMobileNav] = useState(false);
 
     return (

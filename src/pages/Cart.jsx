@@ -95,24 +95,26 @@ const Cart = () => {
   // };
   
 
-  const PlaceOrder= async () => {
+  const PlaceOrder = async () => {
     try {
-      const response = await axios.post(`http://localhost:5000/api/v1/place-order`,{order:Cart},
-        {headers:{
-          authorization:`Bearer ${localStorage.getItem("token")}`,
-        }}
+      const response = await axios.post(
+        "http://localhost:5000/api/v1/place-order",
+        { order: Cart },
+        {
+          headers: {
+            id: localStorage.getItem("id"),
+            authorization: `Bearer ${localStorage.getItem("token")}`
+          }
+        }
       );
-      console.log(response);
-      console.log(response.data.message);
-      // alert(response.data.message);
+      console.log("Order placed successfully:", response.data.message);
       navigate("/profile/orderHistory");
-      
     } catch (error) {
-      console.log(error);
-      
+      console.error("Error placing order:", error);
+      alert(error.response?.data?.message || "Failed to place order.");
     }
-    
   };
+  
   
 
   return (
