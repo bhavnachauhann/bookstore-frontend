@@ -3,12 +3,21 @@ import  { useEffect, useState } from 'react';
 import Loader from '../components/Loader/Loader';
 import BookCard from '../components/BookCard/BookCard';
 import axios from 'axios';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 const AllBooks = () => {
 
   const [data, setData] = useState([]); // Initialize state with an empty array
-
+  
   useEffect(() => {
+
+    AOS.init({
+        duration: 800, // Animation duration in ms
+        easing: 'ease-in-out', // Animation easing
+        once: true, // Trigger animation only once
+    });
+
       const fetchData = async () => {
           try {
               const response = await axios.get("http://localhost:5000/api/v1/get-all-book");
@@ -32,7 +41,7 @@ const AllBooks = () => {
     )}
     <div className='my-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8'>
         {data && data.map((item, i) => (
-            <div key={i}>
+            <div key={i}  data-aos="fade-up">
                 <BookCard data={item} />
             </div>
         ))}
@@ -42,4 +51,4 @@ const AllBooks = () => {
   )
 }
 
-export default AllBooks
+export default AllBooks;
