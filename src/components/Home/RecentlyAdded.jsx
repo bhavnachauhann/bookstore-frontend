@@ -16,18 +16,7 @@ const RecentlyAdded = () => {
         fetch();
     }, []);
 
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             const response = await axios.get("http://localhost:5000/api/v1/get-all-book");
-    //             setData(response.data.data); // Ensure you're setting the correct data path
-    //         } catch (error) {
-    //             console.error("Error fetching data: ", error);
-    //         }
-    //     };
-
-    //     fetchData();
-    // }, []);
+  
 
     return (
         <div className='mt-8 px-4'>

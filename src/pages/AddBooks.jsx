@@ -27,35 +27,6 @@ const AddBooks = () => {
         setData({ ...Data, [name]: value });
     };
 
-    // const submit = async () => {
-    //     try {
-    //         if (
-    //             Data.url === "" ||
-    //             Data.title === "" ||
-    //             Data.author === "" ||
-    //             Data.price === "" ||
-    //             Data.desc === "" ||
-    //             Data.language === ""
-    //         ) {
-    //             alert("All Fields are required");
-    //         } else {
-    //             const response = await axios.post("http://localhost:5000/api/v1/add-book", Data, { headers });
-    //             // setData({
-    //             //     url: "",
-    //             //     title: "",
-    //             //     author: "",
-    //             //     price: "",
-    //             //     desc: "",
-    //             //     language: "",
-
-    //             // });
-    //             alert(response.data.message);
-    //         }
-    //     } catch (error) {
-    //         console.error("Error adding book:", error);
-    //         alert("An error occurred while adding the book.");
-    //     }
-    // };
 
     const submit = async () => {
         try {
@@ -78,7 +49,7 @@ const AddBooks = () => {
                 alert(response.data.message);
             }
         } catch (error) {
-            console.error("Error adding book:", error);
+            // console.error("Error adding book:", error);
             alert("An error occurred while adding the book.");
         }
     };

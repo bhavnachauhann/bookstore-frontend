@@ -124,7 +124,12 @@ const ViewBookDetails = () => {
         </p>
 
         <p className='mt-4 text-zinc-100  text-3xl font-semibold '>price: ₹ {data.price} {" "}</p>
+        <a href="/cart">
+
+        <button className='bg-yellow-300 text-white  rounded-lg p-2 mt-4 text-2xl hover:bg-yellow-500 hover:text-black' onClick={handleCart}> Buy now</button>
+        </a>
         </div>
+
 
     </div>
 

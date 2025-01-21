@@ -32,8 +32,6 @@ const UserOrderHistory = () => {
       } catch (err) {
         console.log(error);
         
-        // console.error("Error fetching order history:", err.response ? err.response.data : err.message);
-        // setError("Failed to load order history. Please try again later.");
       }
     };
   

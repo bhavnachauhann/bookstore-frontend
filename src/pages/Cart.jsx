@@ -61,40 +61,6 @@ const Cart = () => {
     }
   },[Cart]);
 
-  // const PlaceOrder = async () => {
-  //   try {
-  //     console.log("Placing order with data:", Cart);  // Debugging log
-  //     const response = await axios.post(
-  //       "http://localhost:5000/api/v1/place-order",
-  //       { order: Cart },
-  //       { headers }
-  //     );
-  
-  //     // Check if the response indicates success
-  //     if (response && response.data && response.data.success) {
-  //       alert(response.data.message);
-  //       navigate("/profile/orderHistory");  // Navigate to the next page
-  //     } else {
-  //       alert("Failed to place order. Please try again.");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error placing order:", error);
-  
-  //     // Check specific error types
-  //     if (error.response) {
-  //       // Server responded with a status other than 200
-  //       alert(`Failed to place order: ${error.response.data.message || "Unknown error."}`);
-  //     } else if (error.request) {
-  //       // No response from server
-  //       alert("No response from server. Please ensure the backend is running and try again.");
-  //     } else {
-  //       // Other errors
-  //       alert("An error occurred while placing the order. Please try again.");
-  //     }
-  //   }
-  // };
-  
-
   const PlaceOrder = async () => {
     try {
       const response = await axios.post(
