@@ -23,7 +23,7 @@ const SignUp = () => {
             if (values.username === "" || values.email === "" || values.password === "" || values.address === "") {
                 alert("All fields are required");
             } else {
-                const response = await axios.post("http://localhost:5000/api/v1/sign-up", values);
+                const response = await axios.post("https://backend-bookstore-b7ef.onrender.com/api/v1/sign-up", values);
                 alert(response.data.message);
                 navigate("/login");
             }

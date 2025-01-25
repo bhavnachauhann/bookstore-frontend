@@ -40,7 +40,7 @@ const UpdateBook = () => {
             ) {
                 alert("All Fields are required");
             } else {
-                const response = await axios.put("http://localhost:5000/api/v1/update-book", Data, { headers });
+                const response = await axios.put("https://backend-bookstore-b7ef.onrender.com/api/v1/update-book", Data, { headers });
               
                 setData({
                     url: "",
@@ -65,7 +65,7 @@ const UpdateBook = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/v1/get-book-by-id/${id}`);
+                const response = await axios.get(`https://backend-bookstore-b7ef.onrender.com/api/v1/get-book-by-id/${id}`);
                
                 setData(response.data.data); // Ensure you're setting the correct data path
             } catch (error) {

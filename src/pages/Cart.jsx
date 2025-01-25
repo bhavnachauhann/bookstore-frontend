@@ -18,7 +18,7 @@ const Cart = () => {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/v1/get-user-cart", { headers });
+        const res = await axios.get("https://backend-bookstore-b7ef.onrender.com/api/v1/get-user-cart", { headers });
         // console.log(res.data.data);
         setCart(res.data.data);
       } catch (error) {
@@ -31,7 +31,7 @@ const Cart = () => {
 
   const deleteItem = async (bookId) => {
     try {
-      const response = await axios.put(`http://localhost:5000/api/v1/remove-from-cart/${bookId}`, {}, { headers });
+      const response = await axios.put(`https://backend-bookstore-b7ef.onrender.com/api/v1/remove-from-cart/${bookId}`, {}, { headers });
       // alert(response.data.message);
       console.log(response.data);
       // Refresh cart after deletion
@@ -41,14 +41,7 @@ const Cart = () => {
     }
   };
 
-  // useEffect(() => {
-  //   if (Cart.length > 0) {
-  //     const total = Cart.reduce((acc, item) => acc + item.price, 0);
-  //     setTotal(total);
-  //   } else {
-  //     setTotal(0); // Set total to 0 if cart is empty
-  //   }
-  // }, [Cart]);
+  
 
   useEffect(()=>{
     if(Cart && Cart.length>0){
@@ -64,7 +57,7 @@ const Cart = () => {
   const PlaceOrder = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/place-order",
+        "https://backend-bookstore-b7ef.onrender.com/api/v1/place-order",
         { order: Cart },
         {
           headers: {

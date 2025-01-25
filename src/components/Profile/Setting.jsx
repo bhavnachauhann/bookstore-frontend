@@ -17,7 +17,7 @@ const Setting = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const response = await axios.get("http://localhost:5000/api/v1/get-user-information", { headers });
+      const response = await axios.get("https://backend-bookstore-b7ef.onrender.com/api/v1/get-user-information", { headers });
       setProfileData(response.data);
       setValue({ address: response.data.address });
       setLoading(false);
@@ -33,7 +33,7 @@ const Setting = () => {
 
 
    const  sumbitAddress = async () => {
-    const response = await axios.put("http://localhost:5000/api/v1/update-address", Value ,{ headers });
+    const response = await axios.put("https://backend-bookstore-b7ef.onrender.com/api/v1/update-address", Value ,{ headers });
 
     alert(response.data.message);
     

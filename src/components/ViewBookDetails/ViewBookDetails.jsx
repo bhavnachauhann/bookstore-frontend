@@ -32,7 +32,7 @@ const ViewBookDetails = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/v1/get-book-by-id/${id}`);
+                const response = await axios.get(`https://backend-bookstore-b7ef.onrender.com/api/v1/get-book-by-id/${id}`);
                
                 setData(response.data.data); // Ensure you're setting the correct data path
             } catch (error) {
@@ -50,7 +50,7 @@ const ViewBookDetails = () => {
        };
 
     const handlefav = async () => {
-        const response= await axios.put("http://localhost:5000/api/v1/add-book-to-favourite",{},{headers});
+        const response= await axios.put("https://backend-bookstore-b7ef.onrender.com/api/v1/add-book-to-favourite",{},{headers});
         alert(response.data.message);
         
         
@@ -59,14 +59,14 @@ const ViewBookDetails = () => {
     //     navigate("")
     // }
  const handleCart= async () => {
-    const response= await axios.put("http://localhost:5000/api/v1/add-to-cart",{},{headers});
+    const response= await axios.put("https://backend-bookstore-b7ef.onrender.com/api/v1/add-to-cart",{},{headers});
     alert(response.data.message);
     navigate("/cart");
     
  };
 
  const deleteBook = async () => {
-    const response = await axios.delete("http://localhost:5000/api/v1/delete-book", {headers});
+    const response = await axios.delete("https://backend-bookstore-b7ef.onrender.com/api/v1/delete-book", {headers});
 
   alert(response.data.message);
   navigate("/all-books")

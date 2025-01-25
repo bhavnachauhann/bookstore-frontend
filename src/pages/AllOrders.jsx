@@ -22,7 +22,7 @@ const AllOrders = () => {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/v1/get-all-orders", { headers });
+        const response = await axios.get("https://backend-bookstore-b7ef.onrender.com/api/v1/get-all-orders", { headers });
         setAllOrders(response.data.data); // Set orders in state
         console.log("Fetched orders:", response.data.data);
       } catch (error) {

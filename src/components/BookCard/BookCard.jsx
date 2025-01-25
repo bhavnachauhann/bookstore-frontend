@@ -11,7 +11,7 @@ const BookCard = ({ data, favourites, removeBookFromFavourites }) => {
 
   const handleRemoveBook = async () => {
     try {
-      await axios.delete("http://localhost:5000/api/v1/remove-book-from-favourite", { headers });
+      await axios.delete("https://backend-bookstore-b7ef.onrender.com/api/v1/remove-book-from-favourite", { headers });
       removeBookFromFavourites(data._id);  // Update the list after a successful delete request
     } catch (error) {
       console.error("Error removing book:", error);

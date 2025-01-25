@@ -20,7 +20,7 @@ const AllBooks = () => {
 
       const fetchData = async () => {
           try {
-              const response = await axios.get("http://localhost:5000/api/v1/get-all-book");
+              const response = await axios.get("https://backend-bookstore-b7ef.onrender.com/api/v1/get-all-book");
             //   console.log(response.data.data);
               setData(response.data.data); // Ensure you're setting the correct data path
           } catch (error) {
