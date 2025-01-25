@@ -61,6 +61,7 @@ const ViewBookDetails = () => {
  const handleCart= async () => {
     const response= await axios.put("http://localhost:5000/api/v1/add-to-cart",{},{headers});
     alert(response.data.message);
+    navigate("/cart");
     
  };
 
@@ -68,7 +69,7 @@ const ViewBookDetails = () => {
     const response = await axios.delete("http://localhost:5000/api/v1/delete-book", {headers});
 
   alert(response.data.message);
-  navigate("all/books")
+  navigate("/all-books")
     
  }
 
@@ -84,13 +85,13 @@ const ViewBookDetails = () => {
         {isLoggedIn===true && role==="user" &&(
         <div className='flex flex-col md:flex-row lg:flex-col mt-4 lg:mt-0 items-center justify-between lg:justify-start'>
     <button
-        className='bg-white rounded lg:rounded-full text-3xl p-3 text-red-500 items-center justify-center'
+        className='bg-white rounded lg:rounded-full text-3xl p-3 text-red-500 flex items-center justify-center m-4'
         onClick={handlefav}  // Attach the onClick handler here
     >
         <FaHeart /> <span className='ms-4 block lg:hidden '>Favorites</span>
     </button>
     <button
-        className='text-white rounded md:mt-0 lg:rounded-full text-3xl p-3 mt-8 bg-blue-500 flex items-center justify-center'
+        className='text-white rounded md:mt-0 lg:rounded-full text-3xl p-3 mt-8 bg-blue-500 flex items-center justify-center '
         onClick={handleCart}  // Already attached here
     >
         <FaShoppingCart />
@@ -103,7 +104,7 @@ const ViewBookDetails = () => {
 
 {isLoggedIn===true && role==="admin" &&(
             <div className='flex flex-col md:flex-row lg:flex-col mt-4 lg:mt-0 items-center justify-between lg:justify-start'>
-            <Link to={`/updateBook/${id}`} className='bg-white  rounded lg:rounded-full text-3xl p-3 text-red-500 items-center justify-center' ><FaEdit /> {" "}
+            <Link to={`/updateBook/${id}`} className='bg-white  rounded lg:rounded-full text-3xl p-3 text-red-500 flex items-center justify-center m-2' ><FaEdit /> {" "}
             <span className='ms-4 block lg:hidden '>Edit</span>
             </Link>
             <button className='text-white  rounded md:mt-0 lg:rounded-full text-3xl p-3  mt-8 bg-blue-500 flex items-center justify-center' onClick={deleteBook}><MdDeleteOutline />

@@ -100,8 +100,8 @@ const Cart = () => {
         <>
           <h1 className='text-5xl font-semi-bold text-zinc-500 mb-8'>Your Cart</h1>
           {Cart.map((item, i) => (
-            <div className='w-full my-4 rounded flex flex-col md:flex-row p-4 bg-zinc-800 justify-between items-center' key={i}>
-              <img src={item.url} alt="" className='h-[20] md:h[10vh] object-cover' />
+            <div className='w-full my-4 rounded flex flex-col md:flex-row p-4 bg-zinc-800 justify-between items-center  overflow-hidden' key={i}>
+              <img src={item.url} alt="" className='h-[20vh] md:h-[50vh] object-cover w-full md:w-auto rounded' />
               <div className='w-full md:w-auto'>
                 <h1 className='text-2xl text-zinc-100 font-semibold text-start mt-2 md:mt-0'>
                   {item.title}
